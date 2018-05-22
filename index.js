@@ -1,3 +1,4 @@
+const PusheventTrigger = require('./triggers/push_event');
 require('dotenv').config()
 
 const authentication = require('./authentication');
@@ -31,6 +32,7 @@ const App = {
 
   // If you want your trigger to show up, you better include it here!
   triggers: {
+    [PusheventTrigger.key]: PusheventTrigger,
   },
 
   // If you want your searches to show up, you better include it here!
