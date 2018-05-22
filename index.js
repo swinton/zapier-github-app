@@ -1,4 +1,5 @@
 const authentication = require('./authentication');
+const notification = require('./triggers/notification');
 const pushevent = require('./triggers/pushevent');
 
 // To include the Authorization header on all outbound requests, simply define a function here.
@@ -30,7 +31,8 @@ const App = {
 
   // If you want your trigger to show up, you better include it here!
   triggers: {
-    [pushevent.key]: pushevent,
+    [notification.key]: notification,
+    [pushevent.key]: pushevent
   },
 
   // If you want your searches to show up, you better include it here!
