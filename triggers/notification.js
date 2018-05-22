@@ -19,10 +19,13 @@ module.exports = {
     description: 'Triggers on a new notification.'
   },
 
+  // `operation` is where the business logic goes.
   operation: {
-    inputFields: [
+    inputFields: [],
 
-    ],
+    // Type: https://github.com/zapier/zapier-platform-schema/blob/v6.0.0/docs/build/schema.md#basicpollingoperationschema
+    // type: 'polling',
+
     perform: triggerNotification,
 
     sample: [
@@ -69,7 +72,7 @@ module.exports = {
         "last_read_at": "2014-11-07T22:01:45Z",
         "url": "https://api.github.com/notifications/threads/1"
       }
-    ],
+    ]
 
     // outputFields: [
     //   {key: 'id', label: 'ID'},

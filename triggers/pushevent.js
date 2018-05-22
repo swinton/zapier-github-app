@@ -214,7 +214,7 @@ module.exports = {
         "type": "User",
         "site_admin": false
       }
-    },
+    }
 
     // Optional: What fields of data will this return?
     // outputFields: [
