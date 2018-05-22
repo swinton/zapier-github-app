@@ -1,0 +1,24 @@
+{
+  "name": "zapier-github-app",
+  "version": "1.0.0",
+  "description": "An example GitHub app for the Zapier platform.",
+  "repository": "swinton/zapier-github-app",
+  "homepage": "https://github.com/apps/zapier",
+  "author": "Steve Winton <stevewinton@gmail.com>",
+  "license": "ISC",
+  "main": "index.js",
+  "scripts": {
+    "test": "node node_modules/mocha/bin/mocha --recursive"
+  },
+  "engines": {
+    "node": "6.10.3",
+    "npm": ">=3.10.10"
+  },
+  "dependencies": {
+    "zapier-platform-core": "6.0.0"
+  },
+  "devDependencies": {
+    "mocha": "3.2.0",
+    "should": "11.2.1"
+  }
+}
