@@ -1,3 +1,5 @@
+const moment = require('moment')
+
 const sample = require('../samples/sample_pushevent');
 
 // triggers on GitHub PushEvent
@@ -5,19 +7,18 @@ const handlePushEvent = (z, bundle) => {
   // bundle.cleanedRequest will include the parsed JSON object (if it's not a
   // test poll) and also a .querystring property with the URL's query string.
   const push = {
+    repo: bundle.cleanedRequest.repository.full_name,
+    sha: bundle.cleanedRequest.head_commit.id.substr(0, 6),
+    message: bundle.cleanedRequest.head_commit.message,
     ref: bundle.cleanedRequest.ref,
-    before: bundle.cleanedRequest.before,
-    after: bundle.cleanedRequest.after,
-    created: bundle.cleanedRequest.created,
-    deleted: bundle.cleanedRequest.deleted,
-    forced: bundle.cleanedRequest.forced,
-    base_ref: bundle.cleanedRequest.base_ref,
-    compare: bundle.cleanedRequest.compare,
-    commits: bundle.cleanedRequest.commits,
-    head_commit: bundle.cleanedRequest.head_commit,
-    repository: bundle.cleanedRequest.repository,
-    pusher: bundle.cleanedRequest.pusher,
-    sender: bundle.cleanedRequest.sender
+    repo_url: bundle.cleanedRequest.repository.html_url,
+    commit_url: bundle.cleanedRequest.head_commit.url,
+    author_name: bundle.cleanedRequest.head_commit.author.name,
+    author_email: bundle.cleanedRequest.head_commit.author.email,
+    author_username: bundle.cleanedRequest.head_commit.author.username,
+    timestamp: moment(bundle.cleanedRequest.head_commit.timestamp).format("MMMM Do YYYY, h:mm:ss a"),
+    // Include the original "raw" event
+    raw: bundle.cleanedRequest
   };
 
   return [push];
