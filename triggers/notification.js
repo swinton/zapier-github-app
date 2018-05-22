@@ -1,10 +1,8 @@
 // triggers on notification with a certain tag
 const triggerNotification = (z, bundle) => {
   const responsePromise = z.request({
-    url: 'https://api.github.com/notifications',
-    params: {
-      tag: bundle.inputData.tagName
-    }
+    method: 'GET',
+    url: 'https://api.github.com/notifications'
   });
   return responsePromise
     .then(response => z.JSON.parse(response.content));
@@ -24,12 +22,11 @@ module.exports = {
     inputFields: [],
 
     // Type: https://github.com/zapier/zapier-platform-schema/blob/v6.0.0/docs/build/schema.md#basicpollingoperationschema
-    // type: 'polling',
+    type: 'polling',
 
     perform: triggerNotification,
 
-    sample: [
-      {
+    sample: {
         "id": "1",
         "repository": {
           "id": 1296269,
@@ -71,12 +68,6 @@ module.exports = {
         "updated_at": "2014-11-07T22:01:45Z",
         "last_read_at": "2014-11-07T22:01:45Z",
         "url": "https://api.github.com/notifications/threads/1"
-      }
-    ]
-
-    // outputFields: [
-    //   {key: 'id', label: 'ID'},
-    //   {key: 'name', label: 'Name'}
-    // ]
+    }
   }
 };
