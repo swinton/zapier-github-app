@@ -26,7 +26,7 @@ const handlePushEvent = (z, bundle) => {
 
 const returnSamplePushEvent = (z, bundle) => {
   // For the test poll, you should get some real data, to aid the setup process.
-  return sample;
+  return [sample];
 };
 
 module.exports = {
