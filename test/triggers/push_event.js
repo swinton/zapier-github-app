@@ -9,10 +9,10 @@ const appTester = zapier.createAppTester(App);
 zapier.tools.env.inject();
 
 describe('My App', () => {
-  it('should run triggers.push_event', done => {
+  it('should run triggers.pushevent', done => {
     const bundle = { inputData: {} };
 
-    appTester(App.triggers.push_event.operation.perform, bundle)
+    appTester(App.triggers.pushevent.operation.perform, bundle)
       .then(results => {
         should.exist(results);
         done();

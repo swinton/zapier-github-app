@@ -1,7 +1,5 @@
-const PusheventTrigger = require('./triggers/push_event');
-require('dotenv').config()
-
 const authentication = require('./authentication');
+const pushevent = require('./triggers/pushevent');
 
 // To include the Authorization header on all outbound requests, simply define a function here.
 // It runs runs before each request is sent out, allowing you to make tweaks to the request in a centralized spot
@@ -32,7 +30,7 @@ const App = {
 
   // If you want your trigger to show up, you better include it here!
   triggers: {
-    [PusheventTrigger.key]: PusheventTrigger,
+    [pushevent.key]: pushevent,
   },
 
   // If you want your searches to show up, you better include it here!
